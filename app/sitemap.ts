@@ -39,7 +39,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${base}/`,            lastModified: now, changeFrequency: 'weekly',  priority: 1.0 },
     { url: `${base}/doctor`,      lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${base}/about`,       lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/contact`,     lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${base}/appointment`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${base}/blog`,        lastModified: newestPost ?? now, changeFrequency: 'weekly', priority: 0.7 },
@@ -47,7 +46,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${base}/locations`,   lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/gallery`,     lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
     { url: `${base}/reviews`,     lastModified: now, changeFrequency: 'weekly',  priority: 0.6 },
-    { url: `${base}/team`,        lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${base}/packages`,        lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/success-stories`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
   ]

@@ -25,6 +25,13 @@ const nextConfig = {
     // so each resolved image URL is safe to cache for a full year, same as JS/CSS.
     minimumCacheTTL: 31536000,
   },
+  // About and Team pages are not used on this site — redirect any old links to home.
+  async redirects() {
+    return [
+      { source: '/about', destination: '/', permanent: true },
+      { source: '/team',  destination: '/', permanent: true },
+    ]
+  },
 }
 
 module.exports = nextConfig

@@ -36,7 +36,10 @@ const DEFAULT_MENU = ['home', 'about', 'doctor', 'team', 'services', 'products',
 export default function Header({ clinic }: { clinic: ClinicInfo }) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
+  // Client override: About and Team pages are not used on this site.
+  const HIDDEN_KEYS = ['about', 'team']
   const menuKeys = ((clinic.type && MENU_BY_ENTITY[clinic.type]) || DEFAULT_MENU)
+    .filter(k => !HIDDEN_KEYS.includes(k))
     .filter(k => k !== 'products' || clinic.hasPackages !== false)
   const navLinks = menuKeys.map(k => ALL_LINKS[k]).filter(Boolean)
 

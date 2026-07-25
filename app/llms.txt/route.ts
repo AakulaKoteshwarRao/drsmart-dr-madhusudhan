@@ -68,7 +68,6 @@ Website: ${base}
 ## Key Pages
 - ${base}/ — Homepage
 - ${base}/doctor — Doctor profile, credentials, and biography
-- ${base}/about — About the clinic
 - ${base}/services — All services offered
 - ${base}/conditions — Medical conditions treated
 - ${base}/procedures — Medical procedures performed

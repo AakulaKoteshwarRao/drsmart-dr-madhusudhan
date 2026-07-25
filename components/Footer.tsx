@@ -58,6 +58,7 @@ export default function Footer({ clinic, config }: { clinic: ClinicInfo; config?
   const entityType = clinic.type || ''
   const quickLinks = (QUICK_LINKS_BY_ENTITY[entityType] || DEFAULT_QUICK_LINKS)
     .filter(l => l.href !== '/packages' || clinic.hasPackages !== false)
+    .filter(l => l.href !== '/about' && l.href !== '/team')
   const serviceLinks = [
     ...((config?.services?.conditions || []).slice(0, 4).map((s: any) => ({ label: s.title, href: `/conditions/${s.slug}` }))),
     ...((config?.procedures || []).slice(0, 2).map((p: any) => ({ label: p.title, href: `/procedures/${p.slug}` }))),
