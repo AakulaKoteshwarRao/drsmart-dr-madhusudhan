@@ -64,6 +64,7 @@ export default function Footer({ clinic, config }: { clinic: ClinicInfo; config?
     ...((config?.procedures || []).slice(0, 2).map((p: any) => ({ label: p.title, href: `/procedures/${p.slug}` }))),
     { label: 'View All Services', href: '/services' },
   ]
+  const locations = (((config as any)?.locations) || []) as any[]
 
   return (
     <footer className="footer">
@@ -83,8 +84,19 @@ export default function Footer({ clinic, config }: { clinic: ClinicInfo; config?
         <div>
           <h3>Contact</h3>
           <div className="footer-contact">
-            <div className="contact-item"><Icon name="location" size={15} /><span>{clinic.address}</span></div>
-            <div className="contact-item"><Icon name="phone" size={15} /><a href={`tel:${clinic.phone}`}>{clinic.phone}</a></div>
+            {locations.length > 1 ? (
+              locations.map((loc, i) => (
+                <div key={i} className="footer-location" style={{ marginBottom: '0.65rem' }}>
+                  <div className="contact-item"><Icon name="location" size={15} /><span>{loc.name ? <><strong>{loc.name}</strong> — </> : null}{loc.address}</span></div>
+                  {loc.phone && <div className="contact-item"><Icon name="phone" size={15} /><a href={`tel:${loc.phone}`}>{loc.phone}</a></div>}
+                </div>
+              ))
+            ) : (
+              <>
+                <div className="contact-item"><Icon name="location" size={15} /><span>{clinic.address}</span></div>
+                <div className="contact-item"><Icon name="phone" size={15} /><a href={`tel:${clinic.phone}`}>{clinic.phone}</a></div>
+              </>
+            )}
             <div className="contact-item"><Icon name="envelope" size={15} /><a href={`mailto:${clinic.email}`}>{clinic.email}</a></div>
             <div className="contact-item"><Icon name="clock" size={15} /><span>{clinic.hours}</span></div>
             <div className="contact-divider"></div>

@@ -645,17 +645,29 @@ export function transformConfig(raw: Record<string, any>): ClinicConfig {
   }))
 
   // ── Locations ─────────────────────────────────────────────────────────────
-  // For solo clinics, build a single location from s02 data
-  const locations = [{
-    name:        clinic.name,
-    slug:        slugify(clinic.name),
-    address:     clinic.address,
-    phone:       clinic.phone,
-    hours:       clinic.hours,
-    mapUrl:      mapsUrl,
-    mapEmbedUrl: clinic.mapEmbedUrl,
-    isPrimary:   true,
-  }]
+  // Multi-location: if s02.locations is provided, build one entry per clinic.
+  // Otherwise fall back to a single location built from s02 data (solo clinics).
+  const locations = (Array.isArray((s02 as any).locations) && (s02 as any).locations.length)
+    ? (s02 as any).locations.map((loc: any, i: number) => ({
+        name:        s(loc.name, clinic.name),
+        slug:        slugify(s(loc.name, `location-${i + 1}`)),
+        address:     s(loc.address, ''),
+        phone:       s(loc.phone, ''),
+        hours:       s(loc.hours, clinic.hours),
+        mapUrl:      s(loc.mapUrl, ''),
+        mapEmbedUrl: s(loc.mapEmbedUrl, ''),
+        isPrimary:   i === 0,
+      }))
+    : [{
+        name:        clinic.name,
+        slug:        slugify(clinic.name),
+        address:     clinic.address,
+        phone:       clinic.phone,
+        hours:       clinic.hours,
+        mapUrl:      mapsUrl,
+        mapEmbedUrl: clinic.mapEmbedUrl,
+        isPrimary:   true,
+      }]
 
   // ── Optional Pages ────────────────────────────────────────────────────────
   const optionalPages = {
