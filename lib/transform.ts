@@ -276,9 +276,9 @@ export function transformConfig(raw: Record<string, any>): ClinicConfig {
   const specialty = s(s02.medicalSpecialty || s00.entityType, 'Medical')
 
   const hero: HeroSection = {
-    label:       `${clinic.name} · ${clinic.city}`,
+    label:       s((s04 as any).heroLabel, `${clinic.name} · ${clinic.city}`),
     heading:     (s04.headingOverride as string) || (s04.heroHeading as string) || `Advanced ${specialty} Care in`,
-    headingEm:   clinic.city,
+    headingEm:   s((s04 as any).heroHeadingEm, clinic.city),
     subtext:     (s04.subtextOverride as string) || (s04.heroSubtext as string) || `${doctorName} provides expert diagnosis and treatment using the latest technology and a patient-first approach.`,
     tags:        a(s03.degrees).length ? [
       (s03.jobTitle || s03.designation || (typeof a(s03.degrees)[0] === 'object' ? (a(s03.degrees)[0]?.degree || '') : (a(s03.degrees)[0] || ''))),
