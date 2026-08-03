@@ -8,9 +8,9 @@ export default function LocalAreas({ areas, clinic }: { areas: AreaItem[]; clini
   return (
     <section className="areas-section">
       <div className="sec-header">
-        <div className="sec-label"><span>Serving {clinic.city}</span></div>
+        <div className="sec-label"><span>Serving {clinic.serviceArea || clinic.city}</span></div>
         <h2 className="sec-title">Conveniently located for you.</h2>
-        <p className="sec-sub">We serve patients from across {clinic.city} and surrounding areas.</p>
+        <p className="sec-sub">We serve patients from across {clinic.serviceArea || clinic.city} and surrounding areas.</p>
       </div>
       <div className="areas-grid-8">
         {areas.map((area, i) => (

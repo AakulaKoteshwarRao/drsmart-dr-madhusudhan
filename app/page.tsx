@@ -62,10 +62,10 @@ export default async function HomePage() {
       <main>
         <Hero hero={cfg.hero} clinic={cfg.clinic} />
         <TrustStrip items={cfg.trustStrip} />
-        <WhyChoose cards={cfg.whyChoose} title={`Why patients in ${(cfg.clinic as any)?.city || 'your area'} choose us.`} />
+        <WhyChoose cards={cfg.whyChoose} title={`Why patients in ${(cfg.clinic as any)?.serviceArea || (cfg.clinic as any)?.city || 'your area'} choose us.`} />
         <CardGrid
           label="Conditions We Treat"
-          title={`Conditions we treat in ${(cfg.clinic as any)?.city || 'your area'}.`}
+          title={`Conditions we treat in ${(cfg.clinic as any)?.serviceArea || (cfg.clinic as any)?.city || 'your area'}.`}
           subtitle="From common to complex conditions -- each diagnosis is approached with precision and care."
           items={cfg.conditions}
           viewAllHref="/services#conditions"
@@ -73,7 +73,7 @@ export default async function HomePage() {
         />
         <CardGrid
           label="Procedures"
-          title={`Procedures we perform in ${(cfg.clinic as any)?.city || 'your area'}.`}
+          title={`Procedures we perform in ${(cfg.clinic as any)?.serviceArea || (cfg.clinic as any)?.city || 'your area'}.`}
           subtitle="Minimally invasive and surgical procedures performed with modern techniques and premium equipment."
           items={cfg.procedures}
           viewAllHref="/services#procedures"

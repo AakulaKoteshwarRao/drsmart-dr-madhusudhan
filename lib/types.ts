@@ -49,6 +49,7 @@ export interface ClinicInfo {
   addressObj?: { street: string; city: string; state: string; pincode: string; country: string }
   city: string
   area: string
+  serviceArea?: string
   street: string
   hospital: string
   mapsUrl: string

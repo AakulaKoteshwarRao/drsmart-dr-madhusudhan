@@ -136,6 +136,9 @@ export function transformConfig(raw: Record<string, any>): ClinicConfig {
     address:     [s(s02.buildingName,''), s(s02.street,''), s(s02.city,'')].filter(Boolean).join(', '),
     city:        s(s02.city, ''),
     area:        s(s02.area ?? s02.street, ''),
+    // Marketing-only service-area label (e.g. "Bahrain and Hyderabad") for headings,
+    // kept separate from city/area so real addresses stay clean per-location.
+    serviceArea: s(s02.serviceArea, s(s02.city, '')),
     street:      s(s02.street, ''),
     hospital:    s(s02.buildingName, ''),
     hours: typeof s02.hours === 'string' ? s02.hours : (s02.hours && typeof s02.hours === 'object' ? (() => {
