@@ -115,13 +115,6 @@ export default function AppointmentForm({ clinic }: { clinic: ClinicInfo }) {
                 {clinic.phone} <Icon name="arrow-right" size={14} />
               </a>
             </div>
-            <div className="sidebar-card">
-              <div className="sidebar-card-icon" style={{ background: 'linear-gradient(135deg,var(--primary),var(--primary-dark))' }}>
-                <Icon name="clock" size={20} color="#FFFFFF" />
-              </div>
-              <h3>Working Hours</h3>
-              <p>{clinic.hours}</p>
-            </div>
           </div>
         </div>
       </div>
