@@ -653,6 +653,7 @@ export function transformConfig(raw: Record<string, any>): ClinicConfig {
         name:        s(loc.name, clinic.name),
         slug:        slugify(s(loc.name, `location-${i + 1}`)),
         address:     s(loc.address, ''),
+        label:       s(loc.label, ''),
         phone:       s(loc.phone, ''),
         hours:       s(loc.hours, clinic.hours),
         mapUrl:      s(loc.mapUrl, ''),

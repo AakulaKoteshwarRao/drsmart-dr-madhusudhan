@@ -120,7 +120,13 @@ export default async function ContactPage() {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="22" height="22"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               </div>
               <h3>Address</h3>
-              <p>{clinic.address}</p>
+              {(cfg.locations && cfg.locations.length) ? (
+                cfg.locations.map((loc: any, i: number) => (
+                  <p key={i} style={{ marginBottom: i < cfg.locations!.length - 1 ? '0.4rem' : 0 }}>{loc.label || loc.address}</p>
+                ))
+              ) : (
+                <p>{clinic.address}</p>
+              )}
             </div>
           </div>
         </div>
