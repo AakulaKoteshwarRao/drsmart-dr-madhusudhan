@@ -511,10 +511,6 @@ export default function ProcedureDetail({
               WhatsApp Us <Icon name="whatsapp" size={16} />
             </a>
           </div>
-          <div className="cta-band-info">
-            {clinicAddress && <span>📍 {clinicAddress}</span>}
-            {clinicHours && <span>🕐 {clinicHours}</span>}
-          </div>
         </div>
       </section>
     </>

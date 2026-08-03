@@ -5,7 +5,7 @@ export default function ClinicDetails({ clinic }: { clinic: ClinicInfo }) {
   const cards = [
     { grad: 'linear-gradient(135deg,var(--primary),var(--primary-dark))', icon: 'location', title: 'Address', body: clinic.address, link: { label: 'Get Directions', href: clinic.mapsUrl } },
     { grad: 'linear-gradient(135deg,var(--secondary),var(--secondary-dark))', icon: 'clock', title: 'Working Hours', body: clinic.hours },
-    { grad: 'linear-gradient(135deg,var(--secondary-deep),var(--secondary-deep))', icon: 'buildings', title: 'Parking', body: 'Bike and car parking available on Street No. 1 outside the building.' },
+    { grad: 'linear-gradient(135deg,var(--secondary-deep),var(--secondary-deep))', icon: 'location', title: 'Hyderabad', body: 'Sculpt Aesthetics, Madhapur, Hyderabad' },
     { grad: 'linear-gradient(135deg,var(--primary-dark),var(--secondary-deep))', icon: 'calendar', title: 'Appointments', body: 'By appointment preferred. Walk-ins accepted subject to availability. Emergency cases seen immediately.' },
   ]
   return (

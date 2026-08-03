@@ -17,9 +17,6 @@ export default function CTABand({ cta }: { cta: CTABand }) {
               <Icon name="whatsapp" size={16} /> {cta.secondaryLabel}
             </a>
           </div>
-          <div className="cta-band-info">
-            {cta.infoItems.map((item, i) => <span key={i}>{item}</span>)}
-          </div>
         </div>
       </div>
     </section>
