@@ -52,14 +52,6 @@ export default function DoctorHero({ doctor, clinic }: { doctor: DoctorInfo; cli
             </div>
             <div className="doc-details">
               <div className="doc-detail-item">
-                <Icon name="location" size={18} color="var(--primary)" />
-                <a href={clinic.mapUrl} target="_blank" rel="noreferrer" style={{ color: 'var(--primary-dark)', textDecoration: 'none', fontWeight: 600, fontSize: 'var(--text-base)' }}>{clinic.address}</a>
-              </div>
-              <div className="doc-detail-item">
-                <Icon name="clock" size={18} color="var(--primary)" />
-                <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'var(--text-base)' }}>{clinic.hours}</span>
-              </div>
-              <div className="doc-detail-item">
                 <Icon name="language" size={18} color="var(--primary)" />
                 <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 'var(--text-base)' }}>{doctor.languages.join(' · ')}</span>
               </div>
