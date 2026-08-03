@@ -255,8 +255,6 @@ export function transformConfig(raw: Record<string, any>): ClinicConfig {
       { number: googleRating + '\u2605', label: 'Google Rating' },
     ],
     details: [
-      { icon: 'location', text: `${clinic.name}, ${clinic.area}, ${clinic.city}`, link: mapsUrl },
-      { icon: 'clock',    text: clinic.hours },
       { icon: 'language', text: clinic.languages },
     ],
     education:    a(s03.degrees).map((d: any) => typeof d === 'object' ? { degree: d.degree || d.title || '', institution: d.institution || '' } : { degree: d, institution: '' }),
